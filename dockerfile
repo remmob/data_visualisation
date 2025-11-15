@@ -1,15 +1,19 @@
-# Basis image
+# Use a lightweight Python image
 FROM python:3.11-slim
 
-# Werkdirectory
+# Workdir inside the container
 WORKDIR /app
 
-# Dependencies installeren
+# Install dependencies first (faster rebuilds)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Code kopiëren
+# Copy your app
 COPY . .
 
-# Start command
+# Default command (adjust if you use something else)
+# Example: Dash/Flask on port 8000
+ENV PORT=8000
+EXPOSE 8000
+
 CMD ["python", "app.py"]
