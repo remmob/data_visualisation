@@ -6,7 +6,7 @@ services:
     container_name: data-visualization-app
     restart: always
     ports:
-      - "8000:8050"   # extern 8000 → intern 8050
+      - "8010:8050"   # extern 8000 → intern 8050
 
 
 
