@@ -167,3 +167,7 @@ h3 {
 .DayPicker_weekHeader_ul {
     padding-bottom: 5px;
 }
+
+._dash-debug-menu {
+    display: none !important;
+}
