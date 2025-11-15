@@ -15,19 +15,20 @@ Talisman(server, content_security_policy={
         "http://192.168.22.201:8123 "
         "https://mischa.ui.nabu.casa "
         "https://192.168.22.208"
+        "http://192.168.22.208:8010"
     )
 })
 
-app = Dash(__name__, server=server, suppress_callback_exceptions=True)
-# PREFIX = "/data-visualisation-app/"
+#app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+PREFIX = "/data-visualisation-app"
 
-# app = Dash(
-#     __name__,
-#     server=server,
-#     suppress_callback_exceptions=True,
-#     requests_pathname_prefix=PREFIX,
-#     routes_pathname_prefix=PREFIX,
-# )
+app = Dash(
+    __name__,
+    server=server,
+    suppress_callback_exceptions=True,
+    requests_pathname_prefix=PREFIX,
+    routes_pathname_prefix=PREFIX,
+)
 
 
 app.layout = html.Div([
@@ -35,20 +36,9 @@ app.layout = html.Div([
     html.Div(id='page-content')
 ])
 
-# @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
-# def display_page(pathname):
-#     PREFIX = "/data-visualisation-app"
-#     if pathname.startswith(PREFIX):
-#         pathname = pathname[len(PREFIX):]   # strip prefix
-#     pathname = pathname.lstrip("/")         # strip leading slash
-#     if pathname in entities:
-#         entity_id, friendly_name = entities[pathname]
-#         return layout(entity_id, friendly_name)
-#     return html.H1("404 - Pagina niet gevonden")
-
-
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
+    pathname = pathname.lstrip("/")   # <-- fix
     if pathname in entities:
         entity_id, friendly_name = entities[pathname]
         return layout(entity_id, friendly_name)
