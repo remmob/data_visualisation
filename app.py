@@ -18,16 +18,16 @@ Talisman(server, content_security_policy={
     )
 })
 
-#app = Dash(__name__, server=server, suppress_callback_exceptions=True)
-PREFIX = "/data-visualisation-app/"
+app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+# PREFIX = "/data-visualisation-app/"
 
-app = Dash(
-    __name__,
-    server=server,
-    suppress_callback_exceptions=True,
-    requests_pathname_prefix=PREFIX,
-    routes_pathname_prefix=PREFIX,
-)
+# app = Dash(
+#     __name__,
+#     server=server,
+#     suppress_callback_exceptions=True,
+#     requests_pathname_prefix=PREFIX,
+#     routes_pathname_prefix=PREFIX,
+# )
 
 
 app.layout = html.Div([
@@ -35,24 +35,24 @@ app.layout = html.Div([
     html.Div(id='page-content')
 ])
 
-@app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
-def display_page(pathname):
-    PREFIX = "/data-visualisation-app"
-    if pathname.startswith(PREFIX):
-        pathname = pathname[len(PREFIX):]   # strip prefix
-    pathname = pathname.lstrip("/")         # strip leading slash
-    if pathname in entities:
-        entity_id, friendly_name = entities[pathname]
-        return layout(entity_id, friendly_name)
-    return html.H1("404 - Pagina niet gevonden")
-
-
 # @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 # def display_page(pathname):
+#     PREFIX = "/data-visualisation-app"
+#     if pathname.startswith(PREFIX):
+#         pathname = pathname[len(PREFIX):]   # strip prefix
+#     pathname = pathname.lstrip("/")         # strip leading slash
 #     if pathname in entities:
 #         entity_id, friendly_name = entities[pathname]
 #         return layout(entity_id, friendly_name)
 #     return html.H1("404 - Pagina niet gevonden")
+
+
+@app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
+def display_page(pathname):
+    if pathname in entities:
+        entity_id, friendly_name = entities[pathname]
+        return layout(entity_id, friendly_name)
+    return html.H1("404 - Pagina niet gevonden")
 
 # callbacks registreren
 for entity_id, friendly_name in entities.values():
