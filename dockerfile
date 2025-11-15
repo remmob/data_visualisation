@@ -13,7 +13,7 @@ COPY . .
 
 # Default command (adjust if you use something else)
 # Example: Dash/Flask on port 8000
-ENV PORT=8000
-EXPOSE 8000
+ENV PORT=8050
+EXPOSE 8050
 
 CMD ["python", "app.py"]
