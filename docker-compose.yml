@@ -1,17 +1,12 @@
 version: "3.8"
 
 services:
-  data-visualtisation-app:
+  data-visualization-app: 
     build: .
-    container_name: data-visualtisation-app
+    container_name: data-visualization-app
     restart: always
-    expose:
-      - "8000"
-    networks:
-      - proxy-net
+    ports:
+      - "8000:8050"   # extern 8000 → intern 8050
 
-networks:
-  proxy-net:
-    external: true
 
 
