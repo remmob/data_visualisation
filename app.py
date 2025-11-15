@@ -9,27 +9,10 @@ Talisman(server, content_security_policy={
     'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
     'style-src': "'self' 'unsafe-inline'",
-    'frame-ancestors': (
-        "http://localhost:8123 "
-        "http://127.0.0.1:8123 "
-        "http://192.168.22.201:8123 "
-        "https://mischa.ui.nabu.casa "
-        "https://192.168.22.208"
-        "http://192.168.22.208:8010"
-    )
+    'frame-ancestors': "http://192.168.22.208:8010"
 })
 
-#app = Dash(__name__, server=server, suppress_callback_exceptions=True)
-PREFIX = "/data-visualisation-app"
-
-app = Dash(
-    __name__,
-    server=server,
-    suppress_callback_exceptions=True,
-    requests_pathname_prefix=PREFIX,
-    routes_pathname_prefix=PREFIX,
-)
-
+app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
 app.layout = html.Div([
     dcc.Location(id='url'),
@@ -38,7 +21,8 @@ app.layout = html.Div([
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
-    pathname = pathname.lstrip("/")   # <-- fix
+    # strip leading slash zodat /grafiek-woonkamer matcht met "grafiek-woonkamer"
+    pathname = pathname.lstrip("/")
     if pathname in entities:
         entity_id, friendly_name = entities[pathname]
         return layout(entity_id, friendly_name)
@@ -47,7 +31,6 @@ def display_page(pathname):
 # callbacks registreren
 for entity_id, friendly_name in entities.values():
     register_callbacks(app, entity_id, friendly_name)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8050, debug=False)

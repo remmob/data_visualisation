@@ -1,12 +1,9 @@
 version: "3.8"
 
 services:
-  data-visualization-app: 
+  data-visualization-app:
     build: .
     container_name: data-visualization-app
     restart: always
     ports:
-      - "8010:8050"   # extern 8000 → intern 8050
-
-
-
+      - "8010:8050"
