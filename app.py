@@ -19,12 +19,14 @@ Talisman(server, content_security_policy={
 })
 
 #app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+PREFIX = "/data-visualisation-app/"
+
 app = Dash(
     __name__,
     server=server,
     suppress_callback_exceptions=True,
-    requests_pathname_prefix="/data-visualisation-app/",
-    routes_pathname_prefix="/data-visualisation-app/"
+    requests_pathname_prefix=PREFIX,
+    routes_pathname_prefix=PREFIX,
 )
 
 
@@ -35,12 +37,15 @@ app.layout = html.Div([
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
-    if pathname.startswith("/data-visualisation-app"):
-        pathname = pathname[len("/data-visualisation-app"):]
+    PREFIX = "/data-visualisation-app"
+    if pathname.startswith(PREFIX):
+        pathname = pathname[len(PREFIX):]   # strip prefix
+    pathname = pathname.lstrip("/")         # strip leading slash
     if pathname in entities:
         entity_id, friendly_name = entities[pathname]
         return layout(entity_id, friendly_name)
     return html.H1("404 - Pagina niet gevonden")
+
 
 # @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 # def display_page(pathname):
