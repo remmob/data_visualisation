@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  data-visualtisation-app:
+    build: .
+    container_name: data-visualtisation-app
+    restart: always
+    expose:
+      - "8000"
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    external: true
+
+
