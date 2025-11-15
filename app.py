@@ -23,7 +23,8 @@ app = Dash(
     __name__,
     server=server,
     suppress_callback_exceptions=True,
-    requests_pathname_prefix="/data-visualisation-app/"
+    requests_pathname_prefix="/data-visualisation-app/",
+    routes_pathname_prefix="/data-visualisation-app/"
 )
 
 
@@ -34,10 +35,19 @@ app.layout = html.Div([
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
+    if pathname.startswith("/data-visualisation-app"):
+        pathname = pathname[len("/data-visualisation-app"):]
     if pathname in entities:
         entity_id, friendly_name = entities[pathname]
         return layout(entity_id, friendly_name)
     return html.H1("404 - Pagina niet gevonden")
+
+# @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
+# def display_page(pathname):
+#     if pathname in entities:
+#         entity_id, friendly_name = entities[pathname]
+#         return layout(entity_id, friendly_name)
+#     return html.H1("404 - Pagina niet gevonden")
 
 # callbacks registreren
 for entity_id, friendly_name in entities.values():
