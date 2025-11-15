@@ -13,11 +13,19 @@ Talisman(server, content_security_policy={
         "http://localhost:8123 "
         "http://127.0.0.1:8123 "
         "http://192.168.22.201:8123 "
-        "https://mischa.ui.nabu.casa"
+        "https://mischa.ui.nabu.casa "
+        "https://192.168.22.208"
     )
 })
 
-app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+#app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+app = Dash(
+    __name__,
+    server=server,
+    suppress_callback_exceptions=True,
+    requests_pathname_prefix="/data-visualisation-app/"
+)
+
 
 app.layout = html.Div([
     dcc.Location(id='url'),
