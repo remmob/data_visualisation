@@ -18,14 +18,14 @@ Talisman(server, content_security_policy={
     )
 })
 
-app = Dash(__name__, server=server, suppress_callback_exceptions=True)
-# app = Dash(
-#     __name__,
-#     server=server,
-#     suppress_callback_exceptions=True,
-#     requests_pathname_prefix="/data-visualisation-app/",
-#     routes_pathname_prefix="/data-visualisation-app/"
-# )
+#app = Dash(__name__, server=server, suppress_callback_exceptions=True)
+app = Dash(
+    __name__,
+    server=server,
+    suppress_callback_exceptions=True,
+    requests_pathname_prefix="/data-visualisation-app/",
+    routes_pathname_prefix="/data-visualisation-app/"
+)
 
 
 app.layout = html.Div([
