@@ -29,6 +29,17 @@ app = Dash(
     routes_pathname_prefix=PREFIX,
 )
 
+@app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
+def display_page(pathname):
+    if pathname.startswith(PREFIX):
+        pathname = pathname[len(PREFIX):]   # strip prefix
+    pathname = pathname.lstrip("/")         # strip leading slash
+    if pathname in entities:                # entities keys zonder leading slash
+        entity_id, friendly_name = entities[pathname]
+        return layout(entity_id, friendly_name)
+    return html.H1("404 - Pagina niet gevonden")
+
+
 
 app.layout = html.Div([
     dcc.Location(id='url'),
