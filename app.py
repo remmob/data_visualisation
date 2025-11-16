@@ -1,11 +1,14 @@
 from dash import Dash, html, dcc, Input, Output
 from template.template import layout, register_callbacks
 from entities import entities
+
+#print("entities", entities.keys())
+
 from flask import Flask
 from flask_talisman import Talisman
 
 server = Flask(__name__)
-Talisman(server, content_security_policy={
+Talisman(server,force_https=False, content_security_policy={
     'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
     'style-src': "'self' 'unsafe-inline'",
@@ -22,7 +25,7 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
     # strip leading slash zodat /grafiek-woonkamer matcht met "grafiek-woonkamer"
-    pathname = pathname.lstrip("/")
+    #pathname = pathname.lstrip("/")
     if pathname in entities:
         entity_id, friendly_name = entities[pathname]
         return layout(entity_id, friendly_name)
