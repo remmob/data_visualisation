@@ -8,12 +8,12 @@ from flask import Flask
 from flask_talisman import Talisman
 
 server = Flask(__name__)
-Talisman(server,force_https=False, content_security_policy={
-    'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-    'style-src': "'self' 'unsafe-inline'",
-    'frame-ancestors': "http://192.168.22.208:8010 https://192.168.22.201:8123"
-})
+# Talisman(server,force_https=False, content_security_policy={
+#     'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
+#     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+#     'style-src': "'self' 'unsafe-inline'",
+#     'frame-ancestors': "http://192.168.22.208:8010 https://192.168.22.201:8123"
+# })
 
 app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
