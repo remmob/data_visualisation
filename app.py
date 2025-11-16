@@ -13,7 +13,7 @@ Talisman(server, frame_options="ALLOWALL", content_security_policy={
     'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
     'style-src': "'self' 'unsafe-inline'",
-    'frame-ancestors': "http://192.168.22.208:8010 https://192.168.22.201:8123"
+    'frame-ancestors': "http://192.168.22.208:8010 http://192.168.22.201:8123"
 })
 
 
