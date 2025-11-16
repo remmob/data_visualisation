@@ -8,6 +8,7 @@ from flask import Flask
 from flask_talisman import Talisman
 
 server = Flask(__name__)
+talisman = Talisman(app.server, frame_options="ALLOWALL")
 # Talisman(server,force_https=False, content_security_policy={
 #     'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
 #     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
