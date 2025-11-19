@@ -1,8 +1,22 @@
 version: "3.8"
 
+# services:
+#   data-visualization-app:
+#     build: .
+#     container_name: data-visualization-app
+#     restart: always
+#     ports:
+#       - "8010:8050"
+#     environment:
+#       - PYTHONUNBUFFERED=1
+
 services:
   data-visualization-app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        CACHE_BUST: "2025-11-19-1"
     container_name: data-visualization-app
     restart: always
     ports:

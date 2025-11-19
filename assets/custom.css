@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     /* background-image: url('witbolstraat_blur.png'); */
+    background-color: none !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
