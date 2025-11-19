@@ -5,27 +5,13 @@ from flask import Flask
 from flask_talisman import Talisman
 
 server = Flask(__name__)
-# Talisman(server,
-#          frame_options="ALLOWALL",
-#          content_security_policy={
-#              'default-src': "'self' 'unsafe-inline' 'unsafe-eval' data:",
-#              'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-#              'style-src': "'self' 'unsafe-inline'",
-#              'frame-ancestors': "http://192.168.22.208:8010 http://192.168.22.201:8123 https://192.168.22.201:8123"
-#          })
-
-
-# @server.after_request
-# def remove_frame_options(response):
-#     response.headers.pop('X-Frame-Options', None)
-#     return response
 
 app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     children=[
         dcc.Location(id='url'),
-        html.Div(id='page-content')
+        html.Div(id='page-content', className="graph-mobilecontainer")
     ],
     style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent", "height": "100%"}
 )
