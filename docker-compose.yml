@@ -11,7 +11,7 @@ version: "3.8"
 
 services:
   app:
-    image: remmob/data_visualisation::latest
+    image: remmob/data_visualisation:latest
     ports:
       - "8010:8050"
     restart: unless-stopped
