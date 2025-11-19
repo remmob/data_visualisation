@@ -27,7 +27,7 @@ app.layout = html.Div(
         dcc.Location(id='url'),
         html.Div(id='page-content')
     ],
-    style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent"}
+    style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent", "height": "100vh"}
 )
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
