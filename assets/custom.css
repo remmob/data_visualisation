@@ -1,85 +1,77 @@
-/* ========== RESET & BASE ========== */
 * {
     box-sizing: border-box;
 }
 
-html,
 body {
     margin: 0;
     padding: 0;
+    background-color: transparent !important;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    background-color: transparent !important;
     height: 100%;
     overflow: hidden;
-    background-color: transparent !important;
-    font-family: 'Roboto', sans-serif;
 }
 
 #root,
 .dash-container {
-    height: 100%;
     background-color: transparent !important;
+    height: 100%;
 }
 
-/* ========== TITLES & CONTAINERS ========== */
+/* Title container*/
 h3 {
-    color: white;
-    margin: 0 0 10px 10px;
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 10px 10px;
     text-align: center;
 }
 
+/* Container*/
 .graph-container {
+    background-color: rgba(0, 0, 0, 0.2);
     margin: 10px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.2);
     border-bottom-right-radius: 15px;
 }
 
 @media only screen and (max-width: 600px) {
     .graph-mobilecontainer {
-        width: 100% !important;
         height: 80vh !important;
-        margin: 0 !important;
         padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
     }
 }
 
-/* ========== PLOTLY GRAPH ========== */
-.dash-graph,
-.dash-graph .js-plotly-plot,
-.js-plotly-plot,
-.plotly,
-.main-svg,
-.svg-container {
-    background-color: transparent !important;
-    color: white;
-}
-
+/* Graph */
 .dash-graph {
-    margin: 0 1px 10px;
-    width: 100vw;
-    max-width: none;
-}
-
-.js-plotly-plot .plotly div,
-.svg-container {
-    margin-left: -20px;
-    margin-right: -20px;
-    width: 100vw;
-    max-width: none;
-}
-
-.modebar {
     background-color: transparent !important;
-}
-
-.hoverlayer .hovertext {
-    background-color: transparent !important;
-    color: white !important;
-}
-
-/* ========== RADIO BUTTONS ========== */
-.radio-items {
-    margin-left: 15px;
     color: white;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 10px;
+    width: 100vw;
+    max-width: none;
+}
+
+.dash-graph .js-plotly-plot {
+    background-color: transparent !important;
+    color: white;
+}
+
+.js-plotly-plot .plotly div {
+    margin-left: -20px;
+}
+
+/* Radio select buttons*/
+.radio-items {
+    color: rgb(255, 255, 255);
+    margin-left: 15px;
+
 }
 
 .radio-items .dash-radio-items label {
@@ -90,43 +82,43 @@ h3 {
     accent-color: rgb(150, 21, 219);
 }
 
-/* ========== DATE PICKER & CALENDAR ========== */
-.date-picker {
-    margin: 10px 0 0 20px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: none;
-}
-
-.date-picker input,
-.date-picker .DateInput_input,
-.DateInput.DateInput_1 {
-    background-color: rgba(0, 0, 0, 0.0);
-    color: white;
-    border: 0 solid white;
-    border-radius: 5px;
-}
-
+/* Date range picker*/
 .DateRangePickerInput {
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     background-color: transparent;
 }
 
-.DateRangePickerInput_arrow_svg,
-.DayPickerNavigation_svg__horizontal {
+.DateRangePickerInput_arrow_svg {
     fill: white;
 }
 
-.DateRangePicker_picker {
-    background: none;
+.date-picker {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-left: 20px;
+    border: none;
 }
 
-.DayPicker,
-.DayPicker_transitionContainer__horizontal,
-.CalendarMonth,
-.CalendarMonthGrid,
-.CalendarMonth_table .CalendarMonth_table_1 td {
+.date-picker input {
     background-color: rgba(0, 0, 0, 0.0);
+}
+
+.date-picker .DateInput_input {
+    /* background-color:rgba(0, 0, 0, 0.1) !important; */
+    color: white;
+    border: 0px solid rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.DateInput.DateInput_1 {
+    background-color: rgba(0, 0, 0, 0.0);
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.DayPicker {
+    background-color: rgba(0, 0, 0, 0.0);
+    border-bottom-right-radius: 15px;
 }
 
 .DayPicker_transitionContainer__horizontal {
@@ -134,80 +126,103 @@ h3 {
     border-bottom-right-radius: 15px;
 }
 
-.CalendarMonthGrid_month__horizontal,
-.CalendarMonth_caption,
-.CalendarDay__default {
-    color: #757575;
+.DateRangePicker_picker {
+    background: none;
 }
 
+.CalendarMonthGrid_month__horizontal {
+    color: #757575;
+    /*Text color month */
+}
+
+.CalendarMonth {
+    background: rgba(0, 0, 0, 0.0);
+}
+
+/*caption calendar */
 .CalendarMonth_caption {
+    color: #757575;
     padding-bottom: 50px;
 }
 
-.CalendarDay__default:hover,
+.CalendarMonthGrid {
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.CalendarMonth_table .CalendarMonth_table_1 td {
+    background: rgb(0, 0, 0);
+}
+
+/*Days calendar hover*/
+.CalendarDay__default:hover {
+    background: rgb(150, 21, 219);
+    color: rgb(255, 255, 255);
+}
+
+/*Days calendar, the default td*/
+.CalendarDay__default {
+    color: #757575;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
 .CalendarDay__selected,
 .CalendarDay__selected:active,
 .CalendarDay__selected:hover {
     background: rgb(150, 21, 219);
-    color: white;
-    border: 1px double white;
+    color: rgb(255, 255, 255);
+    border: 1px double rgb(255, 255, 255);
 }
 
 .CalendarDay__selected_span,
 .CalendarDay__selected_span:active,
 .CalendarDay__selected_span:hover {
     background: rgba(50, 30, 63, 1);
-    border: 1px double white;
+    border: 1px double rgb(255, 255, 255);
 }
 
+/* Month navigation */
 .DayPickerNavigation_button__default {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.DateInput_fangShape,
-.DateInput_fangStroke {
+.DayPickerNavigation_svg__horizontal {
+    fill: #FFF;
+}
+
+/* start-end date navigation arrow */
+.DateInput_fangShape {
     fill: rgba(0, 0, 0, 0.75);
+}
+
+.DateInput_fangStroke {
     stroke: rgba(0, 0, 0, 0.75);
+    fill: rgba(0, 0, 0, 0.75);
 }
 
 .DayPicker_weekHeader_ul {
     padding-bottom: 5px;
 }
 
-/* ========== DASH DEBUG ========== */
 ._dash-debug-menu {
     display: none !important;
 }
-/* ========== Subtiele Plotly Modebar ========== */
+
+.js-plotly-plot {
+    background-color: transparent !important;
+}
+
+.plotly,
+.main-svg,
+.svg-container {
+    background-color: transparent !important;
+}
+
+
 .modebar {
-    position: absolute !important;
-    top: 10px;
-    right: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
+    background-color: transparent !important;
 }
 
-.js-plotly-plot:hover .modebar {
-    opacity: 1;
-}
-
-.modebar-group {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    display: flex;
-    gap: 2px;
-}
-
-.modebar-btn {
-    background: none !important;
-    border: none !important;
-    fill: white !important;
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
-}
-
-.modebar-btn:hover {
-    opacity: 1;
+.hoverlayer .hovertext {
+    background-color: transparent !important;
+    color: white !important;
 }
