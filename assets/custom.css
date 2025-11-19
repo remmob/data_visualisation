@@ -32,7 +32,7 @@ h3 {
 
 /* Container*/
 .graph-container {
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: transparent !important;
     margin: 10px;
     padding: 10px;
     border-bottom-right-radius: 15px;
@@ -184,4 +184,22 @@ h3 {
 
 ._dash-debug-menu {
     display: none !important;
+}
+
+.js-plotly-plot {
+    background-color: transparent !important;
+}
+.plotly,
+.main-svg,
+.svg-container {
+    background-color: transparent !important;
+}
+
+.modebar {
+    background-color: transparent !important;
+}
+
+.hoverlayer .hovertext {
+    background-color: transparent !important;
+    color: white !important;
 }

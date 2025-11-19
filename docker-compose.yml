@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        CACHE_BUST: "2025-11-19-3"
+        CACHE_BUST: "2025-11-19-4"
     container_name: data-visualization-app
     restart: always
     ports:
