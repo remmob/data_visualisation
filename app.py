@@ -44,12 +44,6 @@ from template.template import layout, register_callbacks
 from entities import entities
 from flask import Flask
 
-@server.after_request
-def remove_frame_options(response):
-    response.headers.pop('X-Frame-Options', None)
-    return response
-
-
 server = Flask(__name__)
 Talisman(server,
          frame_options="ALLOWALL",
@@ -59,7 +53,12 @@ Talisman(server,
              'style-src': "'self' 'unsafe-inline'",
              'frame-ancestors': "http://192.168.22.208:8010 http://192.168.22.201:8123 https://192.168.22.201:8123"
          })
-         
+
+@server.after_request
+def remove_frame_options(response):
+    response.headers.pop('X-Frame-Options', None)
+    return response
+
 app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
 app.layout = html.Div([
