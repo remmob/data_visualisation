@@ -25,14 +25,14 @@ html {
 
 /* Title container*/
 h3 {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     margin: 0px 0px 10px 10px;
     text-align: center;
 }
 
 /* Container*/
 .graph-container {
-    background-color: transparent !important;
+    background-color: rgba(0, 0, 0, 0.2);
     margin: 10px;
     padding: 10px;
     border-bottom-right-radius: 15px;
@@ -61,11 +61,12 @@ h3 {
 }
 
 /* Radio select buttons*/
-.radio-items{
-    color: rgb(255,255,255);
-    margin-left:15px;
+.radio-items {
+    color: rgb(255, 255, 255);
+    margin-left: 15px;
 
 }
+
 .radio-items input[type="radio"] {
     accent-color: rgb(150, 21, 219);
 }
@@ -84,7 +85,7 @@ h3 {
 .date-picker {
     background-color: rgba(0, 0, 0, 0.1);
     margin-top: 10px;
-    margin-left:20px;
+    margin-left: 20px;
     border: none;
 }
 
@@ -119,11 +120,12 @@ h3 {
 }
 
 .CalendarMonthGrid_month__horizontal {
-    color:#757575; /*Text color month */ 
+    color: #757575;
+    /*Text color month */
 }
 
 .CalendarMonth {
-    background:rgba(0, 0, 0, 0.0);
+    background: rgba(0, 0, 0, 0.0);
 }
 
 /*caption calendar */
@@ -142,12 +144,12 @@ h3 {
 
 /*Days calendar hover*/
 .CalendarDay__default:hover {
-    background:rgb(150, 21, 219);
+    background: rgb(150, 21, 219);
     color: rgb(255, 255, 255);
 }
 
 /*Days calendar, the default td*/
-.CalendarDay__default{
+.CalendarDay__default {
     color: #757575;
     background-color: rgba(0, 0, 0, 0.0);
 }
@@ -156,7 +158,7 @@ h3 {
 .CalendarDay__selected:active,
 .CalendarDay__selected:hover {
     background: rgb(150, 21, 219);
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     border: 1px double rgb(255, 255, 255);
 }
 
@@ -178,7 +180,7 @@ h3 {
 
 /* start-end date navigation arrow */
 .DateInput_fangShape {
-    fill:rgba(0, 0, 0, 0.75);
+    fill: rgba(0, 0, 0, 0.75);
 }
 
 .DateInput_fangStroke {
@@ -197,6 +199,7 @@ h3 {
 .js-plotly-plot {
     background-color: transparent !important;
 }
+
 .plotly,
 .main-svg,
 .svg-container {
