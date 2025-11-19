@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -28,7 +32,7 @@ h3 {
 
 /* Container*/
 .graph-container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.0);
     margin: 10px;
     padding: 10px;
     border-bottom-right-radius: 15px;
