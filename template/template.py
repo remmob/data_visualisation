@@ -113,33 +113,35 @@ def register_callbacks(app, entity_id: str, friendly_name: str):
             line=dict(color="limegreen")
         ))
 
-    fig.update_layout(
-        margin=dict(t=40, b=20),
-        height=400,  # ✅ Behoud vaste hoogte maar geen mobiele hacks nodig
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(color='white'),
-        xaxis=dict(
-            color='white',
-            gridcolor='rgba(255,255,255,0.2)'
-        ),
-        yaxis=dict(
-            tickformat='.1f',
-            nticks=5,
-            color='white',
-            gridcolor='rgba(255,255,255,0.2)'
-            # ⚠ OUD: range=[df['state'].min(), df['state'].max()], autorange=False
-            # ❌ Dit veroorzaakte mobiel fallback probleem
+        fig.update_layout(
+            margin=dict(t=40, b=20),
+            height=400,  # ✅ Behoud vaste hoogte maar geen mobiele hacks nodig
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font=dict(color='white'),
+            xaxis=dict(
+                color='white',
+                gridcolor='rgba(255,255,255,0.2)'
+            ),
+            yaxis=dict(
+                tickformat='.1f',
+                nticks=5,
+                color='white',
+                gridcolor='rgba(255,255,255,0.2)'
+                # ⚠ OUD: range=[df['state'].min(), df['state'].max()], autorange=False
+                # ❌ Dit veroorzaakte mobiel fallback probleem
+            )
         )
-    )
 
-    # ------------------------------
-    # Y-as autorange + reverse logica
-    # ------------------------------
-    if range_value in short_ranges and reverse:
-        fig.update_yaxes(autorange="reversed")  # ✅ korte intervallen omgekeerd
-    else:
-        fig.update_yaxes(autorange=True, rangemode="normal")  # ✅ laat Plotly zelf range bepalen, voorkomt fallback naar 0
+        # ------------------------------
+        # Y-as autorange + reverse logica
+        # ------------------------------
+        if range_value in short_ranges and reverse:
+            fig.update_yaxes(autorange="reversed")  # ✅ korte intervallen omgekeerd
+        else:
+            fig.update_yaxes(autorange=True, rangemode="normal")  # ✅ laat Plotly zelf range bepalen, voorkomt fallback naar 0
+
+        return fig
 
         # # Layout met correcte y-as richting
         # fig.update_layout(
