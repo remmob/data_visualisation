@@ -7,3 +7,5 @@ services:
     restart: always
     ports:
       - "8010:8050"
+    environment:
+      - PYTHONUNBUFFERED=1
