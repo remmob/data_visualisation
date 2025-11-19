@@ -1,13 +1,22 @@
 body {
     margin: 0;
     padding: 0;
-    /* background-image: url('witbolstraat_blur.png'); */
-    background-color: rgba(0, 0, 0, 0.0)!important;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-color: transparent !important;
+    overflow: hidden;
     height: 100vh;
-    font-family: 'roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    background-color: transparent !important;
+    height: 100%;
+    overflow: hidden;
+}
+
+#root,
+.dash-container {
+    background-color: transparent !important;
+    height: 100%;
 }
 
 /* Title container*/

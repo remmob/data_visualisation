@@ -21,10 +21,13 @@ def remove_frame_options(response):
 
 app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
-app.layout = html.Div([
-    dcc.Location(id='url'),
-    html.Div(id='page-content')
-])
+app.layout = html.Div(
+    children=[
+        dcc.Location(id='url'),
+        html.Div(id='page-content')
+    ],
+    style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent"}
+)
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
