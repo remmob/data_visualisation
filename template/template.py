@@ -125,13 +125,21 @@ def register_callbacks(app, entity_id: str, friendly_name: str):
                 gridcolor='rgba(255,255,255,0.2)'
             ),
             yaxis=dict(
-                tickformat='.1f',
-                nticks=5,
-                range=[df['state'].min(), df['state'].max()],
-                autorange=False,
-                color='white',
-                gridcolor='rgba(255,255,255,0.2)'
+            tickformat='.1f',
+            nticks=5,
+            autorange=True,
+            rangemode="normal",  # ← de magische fix
+            color='white',
+            gridcolor='rgba(255,255,255,0.2)'
             )
+            # yaxis=dict(
+            #     tickformat='.1f',
+            #     nticks=5,
+            #     range=[df['state'].min(), df['state'].max()],
+            #     autorange=False,
+            #     color='white',
+            #     gridcolor='rgba(255,255,255,0.2)'
+            # )
         )
 
         return fig
