@@ -43,6 +43,7 @@ from dash import Dash, html, dcc, Input, Output
 from template.template import layout, register_callbacks
 from entities import entities
 from flask import Flask
+from flask_talisman import Talisman
 
 server = Flask(__name__)
 Talisman(server,
