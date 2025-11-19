@@ -13,7 +13,7 @@ app.layout = html.Div(
         dcc.Location(id='url'),
         html.Div(id='page-content', className="graph-mobilecontainer")
     ],
-    style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent", "height": "100%"}
+    style={"margin": "0px", "padding": "0px", "backgroundColor": "transparent", "height": "75vh"}
 )
 
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
