@@ -60,10 +60,9 @@ h3 {
 .dash-graph .js-plotly-plot {
     background-color: transparent !important;
     color: white;
-    margin-left: -20px;
-    margin-right: -20px;
 }
 
+.svg-container
 
 /* Radio select buttons*/
 .radio-items {
@@ -210,6 +209,12 @@ h3 {
 .svg-container {
     background-color: transparent !important;
 }
+
+.svg-container {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
 
 .modebar {
     background-color: transparent !important;
