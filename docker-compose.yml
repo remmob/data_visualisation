@@ -1,9 +1,19 @@
 version: "3.8"
 
+# services:
+#   data-visualization-app:
+#     build: .
+#     container_name: data-visualization-app
+#     restart: always
+#     ports:
+#       - "8010:8050"
+
+
 services:
-  data-visualization-app:
-    build: .
-    container_name: data-visualization-app
-    restart: always
+  app:
+    image: remmob/data_visualisation:build-2025-11-19-1  # bump bij elke wijziging
     ports:
       - "8010:8050"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
