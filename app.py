@@ -13,22 +13,12 @@ server = Flask(__name__)
 #              'style-src': "'self' 'unsafe-inline'",
 #              'frame-ancestors': "http://192.168.22.208:8010 http://192.168.22.201:8123 https://192.168.22.201:8123"
 #          })
-Talisman(
-    server,
-    content_security_policy={
-        "default-src": "* 'unsafe-inline' 'unsafe-eval' data: blob:",
-        "script-src": "* 'unsafe-inline' 'unsafe-eval'",
-        "style-src": "* 'unsafe-inline'",
-        "frame-src": "*",
-        "frame-ancestors": "*"
-    },
-    frame_options="ALLOWALL"
-)
 
-@server.after_request
-def remove_frame_options(response):
-    response.headers.pop('X-Frame-Options', None)
-    return response
+
+# @server.after_request
+# def remove_frame_options(response):
+#     response.headers.pop('X-Frame-Options', None)
+#     return response
 
 app = Dash(__name__, server=server, suppress_callback_exceptions=True)
 
