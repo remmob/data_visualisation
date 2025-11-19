@@ -178,3 +178,36 @@ h3 {
 ._dash-debug-menu {
     display: none !important;
 }
+/* ========== Subtiele Plotly Modebar ========== */
+.modebar {
+    position: absolute !important;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.js-plotly-plot:hover .modebar {
+    opacity: 1;
+}
+
+.modebar-group {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    gap: 2px;
+}
+
+.modebar-btn {
+    background: none !important;
+    border: none !important;
+    fill: white !important;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.modebar-btn:hover {
+    opacity: 1;
+}
