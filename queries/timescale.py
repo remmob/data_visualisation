@@ -3,7 +3,7 @@ import pandas as pd
 
 # example: postgresql://user:password@host:port/dbname
 def get_engine():
-    return create_engine("postgresql://homeassistant:Glasaal22!@192.168.22.208:5432/HomeAssistant")
+    return create_engine("")
 
 def fetch_ltts(entity_id, start_time, end_time):
     query = """
